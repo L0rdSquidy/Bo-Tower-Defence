@@ -6,6 +6,14 @@ TagManager:
   tags:
   - Crystal
   - Enemy
+  - fireball
+  - Slash
+  - wizard
+  - Monk
+  - fighter
+  - druid
+  - fireExplosion
+  - NatureExplosion
   layers:
   - Default
   - TransparentFX

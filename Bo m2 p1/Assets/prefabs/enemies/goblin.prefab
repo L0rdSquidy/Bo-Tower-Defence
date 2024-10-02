@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8276838187835641487}
   - component: {fileID: -645628881968285665}
   - component: {fileID: 3412448879203963166}
+  - component: {fileID: -8740262908760304503}
   m_Layer: 6
   m_Name: goblin
   m_TagString: Enemy
@@ -99,10 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61bf140f49e72404b9de297a203c1ce3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  differencefactor: {x: 0, y: 0, z: 0}
   startpoint: {x: 4, y: -8, z: 0}
-  Goingpoint: {x: 0, y: 0, z: 0}
-  distance: 0
   coordinates:
   - {x: -4, y: -5, z: 0}
   - {x: -9, y: -5, z: 0}
@@ -111,7 +109,7 @@ MonoBehaviour:
   - {x: -12, y: 3.25, z: 0}
   - {x: 0, y: 3.25, z: 0}
   - {x: 0, y: 8, z: 0}
-  speed: 3
+  speed: 1
 --- !u!58 &-645628881968285665
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -174,3 +172,16 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
+--- !u!114 &-8740262908760304503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3017516848531290944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c30aecfe2cbc744fb9451e2c85f779b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnemHp: 10

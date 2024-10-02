@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 773638702275385676}
   - component: {fileID: 3825713046461881386}
   - component: {fileID: 7241911161818914352}
+  - component: {fileID: 3703371069422509860}
   m_Layer: 0
   m_Name: selection_2
   m_TagString: Untagged
@@ -105,7 +106,7 @@ MonoBehaviour:
   - {fileID: 891749150441450241}
   - {fileID: 2943930473294307567}
   selected: 0000000000
-  data: {fileID: 1082059360446842447, guid: 8c2065a10d880b642a1b0d63f64f4ab6, type: 3}
+  data: {fileID: 0}
   a: {fileID: 339095382523178403}
   b: {fileID: 2302772322704972194}
 --- !u!61 &7241911161818914352
@@ -153,6 +154,41 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 7.48, y: 7.3420477}
   m_EdgeRadius: 0
+--- !u!58 &3703371069422509860
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 339095382523178403}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.00000011920929}
+  serializedVersion: 2
+  m_Radius: 3.74
 --- !u!1 &870356184221007149
 GameObject:
   m_ObjectHideFlags: 0
@@ -446,6 +482,7 @@ GameObject:
   - component: {fileID: 7707247419799458564}
   - component: {fileID: 4908834762780197527}
   - component: {fileID: 3390563015117204623}
+  - component: {fileID: 811636282979029629}
   m_Layer: 0
   m_Name: selection_2 (1)
   m_TagString: Untagged
@@ -584,9 +621,44 @@ MonoBehaviour:
   - {fileID: 891749150441450241}
   - {fileID: 2943930473294307567}
   selected: 0000000000
-  data: {fileID: 1082059360446842447, guid: 8c2065a10d880b642a1b0d63f64f4ab6, type: 3}
+  data: {fileID: 0}
   a: {fileID: 339095382523178403}
   b: {fileID: 2302772322704972194}
+--- !u!58 &811636282979029629
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2302772322704972194}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.0000038146973, y: -0.00000011920929}
+  serializedVersion: 2
+  m_Radius: 3.9900002
 --- !u!1 &2943930473294307567
 GameObject:
   m_ObjectHideFlags: 0

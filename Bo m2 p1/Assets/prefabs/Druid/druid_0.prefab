@@ -11,9 +11,11 @@ GameObject:
   - component: {fileID: 5624751734981267516}
   - component: {fileID: 3359138839567778577}
   - component: {fileID: 1445891406656366556}
+  - component: {fileID: 7588964713374757391}
+  - component: {fileID: -220309203331673220}
   m_Layer: 0
   m_Name: druid_0
-  m_TagString: Untagged
+  m_TagString: druid
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -106,3 +108,57 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!58 &7588964713374757391
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4524198231396502612}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 5
+--- !u!114 &-220309203331673220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4524198231396502612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4197d9a1f4d0fa148988598c5a4da5c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemies: []
+  isInRadius: 0
+  Fireball: {fileID: 1878893499800308913, guid: a0f68dde2b3fba14b9e9113378b34b69, type: 3}
+  cooldown: 3
+  stamina: 0
+  Barcooldown: 0
+  staminareq: -1

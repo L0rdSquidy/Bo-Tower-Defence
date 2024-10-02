@@ -18,7 +18,7 @@ public class towerspawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Slitch = FindAnyObjectByType<selectionSwitch>();
+        // Slitch = FindAnyObjectByType<selectionSwitch>();
         chars = FindAnyObjectByType<CharacterSelection>();
     }
 
@@ -29,6 +29,7 @@ private void OnMouseDown()
     {
         // Instantiate tower spawner and activate the selector
         towerSpawner = Instantiate(towerSpawner, this.transform.position, Quaternion.identity);
+        Slitch = FindAnyObjectByType<selectionSwitch>();
         towerselectorActive = true;
     }
 
@@ -79,7 +80,7 @@ private void DestroyTowerSpawner()
     void Update()
     {
         chars = FindAnyObjectByType<CharacterSelection>();
-        Slitch = FindAnyObjectByType<selectionSwitch>();
+        
         
     }
 }

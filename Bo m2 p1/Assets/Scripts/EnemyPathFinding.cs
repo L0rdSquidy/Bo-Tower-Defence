@@ -6,12 +6,12 @@ using UnityEngine;
 
 public class EnemyPathFinding : MonoBehaviour
 {
-    [SerializeField] Vector3 differencefactor;
+    private Vector3 differencefactor;
     public Vector3 startpoint;
-    [SerializeField] private Vector3 Goingpoint;
-    [SerializeField] float distance;
+    private Vector3 Goingpoint;
+    float distance;
     [SerializeField] private List<Vector3> coordinates = new List<Vector3>();
-    Vector3 diraction;
+    private Vector3 diraction;
     private int Pointposition;
     [SerializeField] float  speed = 1f;
     void Start()

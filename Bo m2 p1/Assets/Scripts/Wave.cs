@@ -9,7 +9,7 @@ public class Wave : MonoBehaviour
     int waveCount;
     int enemyCount = 10;
     bool waveStart;
-    int killCount;
+    public int killCount;
     public EnemyPathFinding enempath;
     private bool LaneSwitch;
     public GameObject goblin;
@@ -31,12 +31,15 @@ public class Wave : MonoBehaviour
     {
         if (killCount == enemyCount)
         {
-            enemyCount =+ 4;
+            enemyCount = enemyCount += 4;
             StartCoroutine(StartWave(currentEnemy));
             killCount = 0;
         }
     }
-
+    public void KillUp()
+    {
+        killCount ++;
+    }
     public void EnemyManager()
     {
         if (waveCount <= 10)
