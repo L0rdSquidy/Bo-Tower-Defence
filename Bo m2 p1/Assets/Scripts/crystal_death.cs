@@ -6,6 +6,7 @@ public class crystal_death : MonoBehaviour
 {    
     private float CrystalHealth = 10;
     private Wave wave;
+    [SerializeField] private GameObject deathScreen;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +28,9 @@ public class crystal_death : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (CrystalHealth == 0)
+        {
+            deathScreen.SetActive(true);
+        }
     }
 }

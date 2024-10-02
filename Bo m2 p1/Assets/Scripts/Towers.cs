@@ -68,7 +68,7 @@ public class Towers : MonoBehaviour
             if (stamina < 100)
             {
                 Barcooldown = true;
-            } else if (stamina > 200)
+            } else if (stamina >= 150)
             {
                 Barcooldown = false;
             }
