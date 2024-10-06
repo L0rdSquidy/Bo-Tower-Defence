@@ -8,12 +8,11 @@ public class DeathScreen : MonoBehaviour
     public Color highlightColor = Color.black;
     private SpriteRenderer spriteRenderer;
     private Color targetColor;
-    public float colorTransitionSpeed = 1f; 
-    private float TimeCheck;
+    public float colorTransitionSpeed = 1f;
+    private float timeelapsed = 0;
     // Start is called before the first frame update
     void Start()
     {
-        TimeCheck += Time.deltaTime;
         spriteRenderer  = GetComponent<SpriteRenderer>();
         if (spriteRenderer  != null)
         {
@@ -21,10 +20,7 @@ public class DeathScreen : MonoBehaviour
             targetColor = normalColor;
             spriteRenderer.color = normalColor;
         }   
-
         ToDeath();
-    Invoke(nameof(ToDeath), 3f);
-
     }
 
     private void ToDeath()
@@ -36,16 +32,16 @@ public class DeathScreen : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        timeelapsed += Time.deltaTime;
+        if (timeelapsed >= 3)
+        {
+            SceneManager.LoadScene(0);
+        }
         spriteRenderer.color = Color.Lerp(spriteRenderer.color, targetColor, colorTransitionSpeed * Time.deltaTime);
         
     }
 
     private void OnMouseDown() 
-    {
-        SceneManager.LoadScene(0);
-    }
-
-    private void ToGameStart()
     {
         SceneManager.LoadScene(0);
     }

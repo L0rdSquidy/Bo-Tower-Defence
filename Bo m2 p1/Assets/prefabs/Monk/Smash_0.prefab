@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: -8235513923515365726}
   - component: {fileID: -1868118475616783325}
   - component: {fileID: -518273835399507792}
-  - component: {fileID: 3613906860066962272}
   m_Layer: 0
   m_Name: Smash_0
   m_TagString: Slash
@@ -77,7 +76,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 10
   m_Sprite: {fileID: 1531312538, guid: 8575c0e6ac5277945b4e1717a850c9e0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -189,16 +188,3 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &3613906860066962272
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2840259785199697929}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d433252513c989648b68b980aea46a6f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  result: 0

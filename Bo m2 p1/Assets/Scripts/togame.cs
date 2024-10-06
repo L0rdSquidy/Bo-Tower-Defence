@@ -5,21 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class togame : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    float timeelapsed = 0;
 
-    public void ToGame()
-    {
-        new WaitForSeconds(3f);
-        SceneManager.LoadScene(1);
-    }
 
     // Update is called once per frame
     void Update()
     {
-        
+        timeelapsed += Time.deltaTime;
+        if (timeelapsed >= 3)
+        {
+            SceneManager.LoadScene(1);
+        }
     }
 }

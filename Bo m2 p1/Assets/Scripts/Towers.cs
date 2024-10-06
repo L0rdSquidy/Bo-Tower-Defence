@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
-
+using UnityEngine.Animations;
 public class Towers : MonoBehaviour
 {
     public List<GameObject> enemies;
@@ -12,9 +13,14 @@ public class Towers : MonoBehaviour
     [SerializeField] private float stamina;
     [SerializeField] private bool Barcooldown;
     [SerializeField] private float staminareq;
+    [SerializeField] private Animator anims;
+    [SerializeField] private bool AttackTrigger = false;
+    // [SerializeField] TowerExp Exp;
+    Vector3 offset = new Vector3(0, 0, 180);
     private void Start() 
     {
-        
+        anims = GetComponentInChildren<Animator>();
+        // Exp = Exp.GetComponent<TowerExp>();
     }
     private void OnTriggerEnter2D(Collider2D other) 
     {
@@ -36,24 +42,16 @@ public class Towers : MonoBehaviour
     private void Update() 
     {
         timeelapsed += Time.deltaTime;
-        
-        if (enemies.Count == 0)
-        {
-            isInRadius = false;
-        } else if (enemies.Count != 0)
-        {
-            isInRadius = true;
-        }
+        isInRadius = enemies.Count > 0;
         if (isInRadius && timeelapsed >= cooldown && stamina >= 0 && !Barcooldown)
         {
             stamina -= 1;
             fire();
             timeelapsed = 0;
         }
-        if (stamina <0)
-        {
-            stamina = 0;
-        }
+        
+        stamina = Mathf.Max(stamina, 0);
+
         if (stamina <= staminareq)
         {
             StartCoroutine(Kiregen());
@@ -63,12 +61,12 @@ public class Towers : MonoBehaviour
 
     private IEnumerator Kiregen()
     {
-        while (stamina < 200)
+        while (stamina < 20)
         {
-            if (stamina < 100)
+            if (stamina < 10)
             {
                 Barcooldown = true;
-            } else if (stamina >= 150)
+            } else if (stamina >= 15)
             {
                 Barcooldown = false;
             }
@@ -78,6 +76,9 @@ public class Towers : MonoBehaviour
     }
     public void fire()
     {
+        anims.Play("attack");
         Instantiate(Fireball, transform.position, Quaternion.identity, transform);
+        transform.rotation = Quaternion.LookRotation(Vector3.forward, enemies[0].transform.position - transform.position);
+        transform.rotation *= Quaternion.Euler(offset);
     }
 }

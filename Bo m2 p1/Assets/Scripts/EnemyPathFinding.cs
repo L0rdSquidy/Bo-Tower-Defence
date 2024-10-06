@@ -11,19 +11,27 @@ public class EnemyPathFinding : MonoBehaviour
     private Vector3 Goingpoint;
     float distance;
     [SerializeField] private List<Vector3> coordinates = new List<Vector3>();
+    [SerializeField] private List<Quaternion> rotations= new List<Quaternion>();
+    [SerializeField] private List<Quaternion> rotationsPath2= new List<Quaternion>();
+    private List<Quaternion> CurrentRotationsrotations= new List<Quaternion>();
     private Vector3 diraction;
     private int Pointposition;
     [SerializeField] float  speed = 1f;
     void Start()
     {
         
-        if(startpoint == new Vector3(4, -8, 0))
+        if(startpoint.Equals(new Vector3(4, -8, 0)))
         {
+            CurrentRotationsrotations = rotations;
             UpdateCoordinates(0, new Vector3(4, -3.25f, 0));
             UpdateCoordinates(1, new Vector3(9, -3.25f, 0));
             UpdateCoordinates(2, new Vector3(9, -1, 0));
             UpdateCoordinates(3, new Vector3(12, -1, 0));
             UpdateCoordinates(4, new Vector3(12, 3.25f, 0));
+        }
+        if (startpoint.Equals(new Vector3(-4, -8, 0)))
+        {
+            CurrentRotationsrotations = rotationsPath2;
         }
         transform.position = startpoint; 
         Goingpoint = coordinates[Pointposition];
@@ -51,6 +59,7 @@ public class EnemyPathFinding : MonoBehaviour
         if (differencefactor.magnitude < 0.3)
         {
             Goingpoint = coordinates[Pointposition];
+            transform.rotation = CurrentRotationsrotations[Pointposition];
             Pointposition ++;
         }
     }

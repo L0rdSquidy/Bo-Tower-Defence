@@ -16,9 +16,6 @@ public class Wave : MonoBehaviour
     public GameObject kobolt;
     public GameObject orc;
     private GameObject currentEnemy;
-    private Vector3 EnemySpawn1 = new Vector3(-4, -8, 0);
-    private Vector3 EnemySpawn2 = new Vector3(4, 8, 0);
-    private bool EnemySpawnSwitch = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -43,19 +40,20 @@ public class Wave : MonoBehaviour
     public void EnemyManager()
     {
         if (waveCount <= 10)
-        {
-            currentEnemy = goblin;
-        }
-        else if (waveCount <= 20 && waveCount >= 10)
-        {
-            currentEnemy = kobolt;
-            enemyCount = 10;
-        }
-        else if (waveCount <= 30 && waveCount >= 20)
-        {
-            currentEnemy = orc;
-            enemyCount = 10;
-        }
+            {
+                currentEnemy = goblin;
+                Debug.Log(currentEnemy);
+            }
+            else if (waveCount <= 20)
+            {
+                currentEnemy = kobolt;
+                enemyCount = 10;
+            }
+            else if (waveCount <= 30) 
+            {
+                currentEnemy = orc;
+                enemyCount = 10;
+            }
     }
 
 

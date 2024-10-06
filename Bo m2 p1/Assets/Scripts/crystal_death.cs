@@ -15,7 +15,6 @@ public class crystal_death : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other) 
     {
-        // Debug.Log("hello this works");
         if (other.CompareTag("Enemy"))
         {  
             wave.KillUp();

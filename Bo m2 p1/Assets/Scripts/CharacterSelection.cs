@@ -11,7 +11,7 @@ public bool bard = false;
 public bool druid = false;
 public bool monk = false;
 
-// Start is called before the first frame update
+
 void Start()
 {
     Slitch = FindObjectOfType<selectionSwitch>();
@@ -20,37 +20,14 @@ void Start()
 // Update is called once per frame
 void Update()
 {
-    // Reset all classes to false at the beginning
     ResetClasses();
-
-    // Check each class independently
-    if (Slitch.charlist[0])
-    {
-        wizard = true;
-    }
-    
-    if (Slitch.charlist[1])
-    {
-        druid = true;
-    }
-
-    if (Slitch.charlist[2])
-    {
-        bard = true;
-    }
-
-    if (Slitch.charlist[3])
-    {
-        fighter = true;
-    }
-
-    if (Slitch.charlist[4])
-    {
-        monk = true;
-    }
+    if (Slitch.charlist[0]) wizard = true;
+    if (Slitch.charlist[1]) druid = true;
+    if (Slitch.charlist[2]) bard = true;
+    if (Slitch.charlist[3]) fighter = true;
+    if (Slitch.charlist[4]) monk = true;
 }
 
-// Helper function to reset all classes
 void ResetClasses()
 {
     wizard = false;

@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 7607924730814697957}
   - component: {fileID: 2914996843413058054}
   - component: {fileID: -849509179656423150}
-  - component: {fileID: -4577947642361257256}
   m_Layer: 0
   m_Name: NatureBallExplosion
   m_TagString: NatureExplosion
@@ -76,7 +75,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 10
   m_Sprite: {fileID: 1024530179, guid: 1256116fb8985744f9eee97221e1c42e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -157,16 +156,3 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.2
---- !u!114 &-4577947642361257256
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 755129255814364595}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d433252513c989648b68b980aea46a6f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  result: 0

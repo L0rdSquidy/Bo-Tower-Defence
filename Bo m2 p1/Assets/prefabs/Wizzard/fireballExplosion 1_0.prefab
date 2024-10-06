@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 1689322396926752622}
   - component: {fileID: 8090694000953792058}
   - component: {fileID: 3041218816668771436}
-  - component: {fileID: -6134872614428755717}
   - component: {fileID: 5856236259154646147}
   m_Layer: 0
   m_Name: fireballExplosion 1_0
@@ -123,19 +122,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyHP: {fileID: 0}
---- !u!114 &-6134872614428755717
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3930868391020176214}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d433252513c989648b68b980aea46a6f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  result: 0
 --- !u!58 &5856236259154646147
 CircleCollider2D:
   m_ObjectHideFlags: 0

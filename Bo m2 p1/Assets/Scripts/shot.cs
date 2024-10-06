@@ -12,14 +12,16 @@ public class shot : MonoBehaviour
     private Vector3 lastEnemPos;
     [SerializeField] private EnemyHP enemyHP;
     [SerializeField] int dammage;
-    private D20 d20;
+    [SerializeField] private TowerExp expMultiplier;
+    [SerializeField] private Transform TowerTransform;
 
     void Start()
     {
-        enemy = GetComponentInParent<Towers>().enemies[0].gameObject;
-        tower = FindObjectOfType<Towers>();
-        d20 = FindObjectOfType<D20>();
-
+        TowerTransform = gameObject.transform.parent.transform;
+        enemy = TowerTransform.GetComponent<Towers>().enemies[0].gameObject;
+        tower = TowerTransform.GetComponent<Towers>();
+        expMultiplier = TowerTransform.GetComponent<TowerExp>();
+        
     }
     void Update()
     {
@@ -27,10 +29,8 @@ public class shot : MonoBehaviour
         {
             SelfDestruct();
         }
-      
-            transform.position = Vector3.MoveTowards(transform.position, enemy.transform.position, speed * Time.deltaTime);
-            lastEnemPos = enemy.transform.position;
-       
+        transform.position = Vector3.MoveTowards(transform.position, enemy.transform.position, speed * Time.deltaTime);
+        lastEnemPos = enemy.transform.position;
     }
 
     void SelfDestruct()
@@ -49,17 +49,18 @@ public class shot : MonoBehaviour
         Debug.LogWarning(enemyHP);
         if (other.CompareTag("Enemy"))
         {
-            d20.RollDaRolla();
-            enemyHP.HpReduction(dammage * d20.result / 10);
+            int d20 = Random.Range(1, 20);
+            enemyHP.HpReduction(dammage * d20 / 10 * expMultiplier.dammageMultiplier);
+            Debug.LogWarning(d20);
+
             if (enemyHP.EnemHp == 0)
             {
                 tower.enemies.Remove(other.gameObject);
             }
-            
-            
+
             if (this.gameObject.CompareTag("fireball"))
             {
-                Instantiate(FireballExplosion, transform.position, Quaternion.identity);
+                Instantiate(FireballExplosion, transform.position, Quaternion.identity, tower.transform);
                 Destroy(this.gameObject);
             } else if(gameObject.CompareTag("Slash"))
             {

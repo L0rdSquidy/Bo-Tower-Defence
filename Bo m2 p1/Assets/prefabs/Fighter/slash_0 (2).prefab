@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 7117519807719225720}
   - component: {fileID: -7847597936361342136}
   - component: {fileID: -2243698260922659894}
-  - component: {fileID: -2893636790424158667}
   m_Layer: 0
   m_Name: slash_0 (2)
   m_TagString: Slash
@@ -77,7 +76,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 10
   m_Sprite: {fileID: -1269562406, guid: 68c519d98f209da45a12b760e76ab0f4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -189,16 +188,3 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &-2893636790424158667
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 642541643696741120}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d433252513c989648b68b980aea46a6f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  result: 0

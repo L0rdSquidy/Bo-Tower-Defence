@@ -5,12 +5,13 @@ using UnityEngine;
 public class AoiExplosion : MonoBehaviour
 {
     [SerializeField] private EnemyHP enemyHP;
-    private D20 d20;
     private int dammage = 2;
+    [SerializeField]private TowerExp expMultiplier;
+    
     // Start is called before the first frame update
     void Start()
     {
-        d20 = FindObjectOfType<D20>();
+        expMultiplier = GetComponentInParent<TowerExp>();
         Invoke(nameof(OnDestroy), 0.5f);
     }
 
@@ -28,11 +29,11 @@ public class AoiExplosion : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other) 
     {
         enemyHP = other.GetComponent<EnemyHP>();
-        
+        expMultiplier.ExpAdding(10);
         if (other.CompareTag("Enemy"))
         {
-            d20.RollDaRolla();
-            enemyHP.HpReduction(dammage * d20.result / 10);
+            int d20 = Random.Range(1, 20);
+            enemyHP.HpReduction(dammage * d20 / 10);
         }
     }
 }
