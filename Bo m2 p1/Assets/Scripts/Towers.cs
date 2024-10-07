@@ -15,6 +15,7 @@ public class Towers : MonoBehaviour
     [SerializeField] private float staminareq;
     [SerializeField] private Animator anims;
     [SerializeField] private bool AttackTrigger = false;
+    [SerializeField] private GameObject AttackLocation;
     // [SerializeField] TowerExp Exp;
     Vector3 offset = new Vector3(0, 0, 180);
     private void Start() 
@@ -43,8 +44,13 @@ public class Towers : MonoBehaviour
     {
         timeelapsed += Time.deltaTime;
         isInRadius = enemies.Count > 0;
+        if (timeelapsed == 0)
+        {
+            anims.Play("attack");
+        }
         if (isInRadius && timeelapsed >= cooldown && stamina >= 0 && !Barcooldown)
         {
+            anims.Play("attack"); 
             stamina -= 1;
             fire();
             timeelapsed = 0;
@@ -76,8 +82,8 @@ public class Towers : MonoBehaviour
     }
     public void fire()
     {
-        anims.Play("attack");
-        Instantiate(Fireball, transform.position, Quaternion.identity, transform);
+        // anims.Play("attack");
+        Instantiate(Fireball, transform.position, Quaternion.identity, AttackLocation.transform);
         transform.rotation = Quaternion.LookRotation(Vector3.forward, enemies[0].transform.position - transform.position);
         transform.rotation *= Quaternion.Euler(offset);
     }

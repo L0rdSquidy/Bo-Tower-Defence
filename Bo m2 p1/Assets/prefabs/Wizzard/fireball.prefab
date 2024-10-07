@@ -118,7 +118,6 @@ GameObject:
   - component: {fileID: 353275721979826273}
   - component: {fileID: 464462284600061312}
   - component: {fileID: 6576318654538422592}
-  - component: {fileID: 7916084441032400937}
   - component: {fileID: 9113793424398877322}
   m_Layer: 0
   m_Name: fireball
@@ -213,6 +212,8 @@ MonoBehaviour:
   FireballExplosion: {fileID: 3930868391020176214, guid: b563932e7bbd9f54791d1b4b172e8cf6, type: 3}
   enemyHP: {fileID: 0}
   dammage: 5
+  expMultiplier: {fileID: 0}
+  TowerTransform: {fileID: 0}
 --- !u!58 &6576318654538422592
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -220,7 +221,7 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8462159773124698545}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -242,39 +243,12 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.0725404}
   serializedVersion: 2
-  m_Radius: 0.5
---- !u!50 &7916084441032400937
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8462159773124698545}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Radius: 0.3225075
 --- !u!95 &9113793424398877322
 Animator:
   serializedVersion: 5

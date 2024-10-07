@@ -110,6 +110,7 @@ MonoBehaviour:
   staminareq: -1
   anims: {fileID: 0}
   AttackTrigger: 0
+  AttackLocation: {fileID: 9104723973394898918}
 --- !u!58 &8046149228980593998
 CircleCollider2D:
   m_ObjectHideFlags: 0

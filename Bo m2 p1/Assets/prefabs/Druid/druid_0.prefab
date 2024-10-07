@@ -163,6 +163,9 @@ MonoBehaviour:
   stamina: 0
   Barcooldown: 0
   staminareq: -1
+  anims: {fileID: 0}
+  AttackTrigger: 0
+  AttackLocation: {fileID: 4524198231396502612}
 --- !u!114 &8556943180882809133
 MonoBehaviour:
   m_ObjectHideFlags: 0

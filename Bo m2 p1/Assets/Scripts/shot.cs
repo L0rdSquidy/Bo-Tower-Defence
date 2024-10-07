@@ -17,6 +17,10 @@ public class shot : MonoBehaviour
 
     void Start()
     {
+        // if (this.CompareTag("fireball"))
+        // {
+        //     TowerTransform = gameObject.transform.parent.transform.parent.transform;
+        // }else
         TowerTransform = gameObject.transform.parent.transform;
         enemy = TowerTransform.GetComponent<Towers>().enemies[0].gameObject;
         tower = TowerTransform.GetComponent<Towers>();
