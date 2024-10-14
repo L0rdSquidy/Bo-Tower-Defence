@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class AoiExplosion : MonoBehaviour
 {
-    [SerializeField] private EnemyHP enemyHP;
+    private EnemyHP enemyHP;
     private int dammage = 2;
-    [SerializeField]private TowerExp expMultiplier;
+    private TowerExp expMultiplier;
     
     // Start is called before the first frame update
     void Start()

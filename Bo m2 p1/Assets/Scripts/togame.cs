@@ -14,7 +14,12 @@ public class togame : MonoBehaviour
         timeelapsed += Time.deltaTime;
         if (timeelapsed >= 3)
         {
-            SceneManager.LoadScene(1);
+            
         }
+    }
+
+    public void ToGame()
+    {
+        SceneManager.LoadScene(1);
     }
 }

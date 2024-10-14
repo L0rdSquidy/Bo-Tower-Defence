@@ -121,10 +121,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 0}
-  speed: 3
+  speed: 5
   FireballExplosion: {fileID: 755129255814364595, guid: be7553e243b7ff34f85b40cb280d3ade, type: 3}
   enemyHP: {fileID: 0}
-  dammage: 5
+  dammage: 7
+  expMultiplier: {fileID: 0}
+  TowerTransform: {fileID: 0}
 --- !u!58 &6899127105721871825
 CircleCollider2D:
   m_ObjectHideFlags: 0

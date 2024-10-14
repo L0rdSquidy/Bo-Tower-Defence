@@ -7,7 +7,7 @@ public class TowerExp : MonoBehaviour
 {
     public float exp;
     [SerializeField] private float expReq;
-    [SerializeField] private int levels;
+    [SerializeField] public int levels;
     public float dammageMultiplier;
     // Start is called before the first frame update
     void Start()

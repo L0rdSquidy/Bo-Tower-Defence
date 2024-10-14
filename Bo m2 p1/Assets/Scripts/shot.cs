@@ -11,12 +11,13 @@ public class shot : MonoBehaviour
     [SerializeField] private GameObject FireballExplosion;
     private Vector3 lastEnemPos;
     [SerializeField] private EnemyHP enemyHP;
-    [SerializeField] int dammage;
+    [SerializeField] public int dammage;
     [SerializeField] private TowerExp expMultiplier;
     [SerializeField] private Transform TowerTransform;
 
     void Start()
     {
+        
         // if (this.CompareTag("fireball"))
         // {
         //     TowerTransform = gameObject.transform.parent.transform.parent.transform;
@@ -25,16 +26,21 @@ public class shot : MonoBehaviour
         enemy = TowerTransform.GetComponent<Towers>().enemies[0].gameObject;
         tower = TowerTransform.GetComponent<Towers>();
         expMultiplier = TowerTransform.GetComponent<TowerExp>();
+        tower.GetTotal(dammage * expMultiplier.dammageMultiplier);
         
     }
     void Update()
     {
         if(enemy == null)
         {
+            Destroy(gameObject);
+        }
+        if(transform.position	== new Vector3(0, 0, 0))
+        {
             SelfDestruct();
         }
         transform.position = Vector3.MoveTowards(transform.position, enemy.transform.position, speed * Time.deltaTime);
-        lastEnemPos = enemy.transform.position;
+        lastEnemPos = enemy.transform.position; 
     }
 
     void SelfDestruct()

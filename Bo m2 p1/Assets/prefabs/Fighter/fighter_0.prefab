@@ -111,6 +111,15 @@ MonoBehaviour:
   anims: {fileID: 0}
   AttackTrigger: 0
   AttackLocation: {fileID: 9104723973394898918}
+  expMultiplier: {fileID: 1680881945619878386}
+  CanvasObject: {fileID: 0}
+  CharacterSheet: {fileID: 3016931564846765869, guid: dc76030e7f21c9d4da00a92d3ccf3f44, type: 3}
+  charSheet: {fileID: -6797802051449049197, guid: dc76030e7f21c9d4da00a92d3ccf3f44, type: 3}
+  HasChosenSub: 0
+  TotalLvL: 0
+  CharSubC: 
+  TotalDmmg: 0
+  SheetIsActive: 0
 --- !u!58 &8046149228980593998
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -260,10 +269,74 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7944325039700666443, guid: 30aa32442b1fb6b41b0f29000d89bce3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 729138373938501310}
+    - targetCorrespondingSourceObject: {fileID: 7944325039700666443, guid: 30aa32442b1fb6b41b0f29000d89bce3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7701071422249675586}
   m_SourcePrefab: {fileID: 100100000, guid: 30aa32442b1fb6b41b0f29000d89bce3, type: 3}
 --- !u!4 &1160444364600387328 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3349838655410371480, guid: 30aa32442b1fb6b41b0f29000d89bce3, type: 3}
   m_PrefabInstance: {fileID: 4496772218827005080}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &5789473023335478483 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7944325039700666443, guid: 30aa32442b1fb6b41b0f29000d89bce3, type: 3}
+  m_PrefabInstance: {fileID: 4496772218827005080}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &729138373938501310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5789473023335478483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ce01fb2e9f2aba498631a05439e3ca2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  charSheet: {fileID: 0}
+  expMultiplier: {fileID: 1680881945619878386}
+  towerScript: {fileID: 539012088119084751}
+  CharacterSheet: {fileID: 3016931564846765869, guid: dc76030e7f21c9d4da00a92d3ccf3f44, type: 3}
+  CanvasObject: {fileID: 0}
+  SheetIsActive: 0
+--- !u!58 &7701071422249675586
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5789473023335478483}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.75

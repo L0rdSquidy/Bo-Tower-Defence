@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -11,15 +12,22 @@ public class Wave : MonoBehaviour
     bool waveStart;
     public int killCount;
     public EnemyPathFinding enempath;
+    public EnemyPathFinding enemyPathW10;
+    public EnemyPathFinding enemyPathFindingW20;
     private bool LaneSwitch;
+    [SerializeField] private TMP_Text WaveText;
     public GameObject goblin;
     public GameObject kobolt;
     public GameObject orc;
     private GameObject currentEnemy;
+    private Cash cash;
+    
     // Start is called before the first frame update
     void Start()
     {
+        WaveText.text = "" + waveCount;
         EnemyManager();
+    cash = FindAnyObjectByType<Cash>();
        StartCoroutine(StartWave(currentEnemy));
     }
 
@@ -29,6 +37,7 @@ public class Wave : MonoBehaviour
         if (killCount == enemyCount)
         {
             enemyCount = enemyCount += 4;
+            WaveText.text = "" + waveCount;
             StartCoroutine(StartWave(currentEnemy));
             killCount = 0;
         }
@@ -48,11 +57,13 @@ public class Wave : MonoBehaviour
             {
                 currentEnemy = kobolt;
                 enemyCount = 10;
+                cash.switched = 1;
             }
             else if (waveCount <= 30) 
             {
                 currentEnemy = orc;
                 enemyCount = 10;
+                cash.switched = 2;
             }
     }
 
@@ -67,15 +78,43 @@ public class Wave : MonoBehaviour
                 Instantiate(enemy);
                 if (LaneSwitch == true)
                 {
-                    enempath.startpoint = new Vector3(4, -8, 0);
-                    LaneSwitch = false;
+                    if (waveCount <= 10)
+                    {
+                        enempath.startpoint = new Vector3(4, -8, 0);
+                        LaneSwitch = false;
+                    }
+                    else if (waveCount <= 20)
+                    {
+                        enemyPathW10.startpoint = new Vector3(4, -8, 0);
+                        LaneSwitch = false;
+                    }
+                    else if (waveCount <= 30) 
+                    {
+                        enemyPathFindingW20.startpoint = new Vector3(4, -8, 0);
+                        LaneSwitch = false;
+                    }       
+                    
                 } 
                 else if(LaneSwitch == false)
                 {
-                    enempath.startpoint = new Vector3(-4, -8, 0);
-                    LaneSwitch = true;
+                    if (waveCount <= 10)
+                    {
+                        enempath.startpoint= new Vector3(-4, -8, 0);
+                        LaneSwitch = true;
+                    }
+                    else if (waveCount <= 20)
+                    {
+                        enemyPathW10.startpoint = new Vector3(-4, -8, 0);
+                        LaneSwitch = true;
+                    }
+                    else if (waveCount <= 30) 
+                    {
+                        enemyPathFindingW20.startpoint= new Vector3(-4, -8, 0);
+                        LaneSwitch = true;
+                    }   
+                   
                 }
-                yield return new WaitForSeconds(1f);
+                yield return new WaitForSeconds(0.5f);
             }
        waveCount ++;
        EnemyManager();

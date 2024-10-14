@@ -33,7 +33,7 @@ public class DeathScreen : MonoBehaviour
     void Update()
     {
         timeelapsed += Time.deltaTime;
-        if (timeelapsed >= 3)
+        if (timeelapsed >= 6)
         {
             SceneManager.LoadScene(0);
         }

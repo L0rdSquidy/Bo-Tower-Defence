@@ -14,18 +14,25 @@ public class towerspawner : MonoBehaviour
     public GameObject monk;
     public GameObject bard;
     public bool towerselectorActive = false;
+    private bool TowerGotSpawned;
+    public HighlightColor highlightColor;
+    private Cash cash;
     
     
     void Start()
     {
         chars = FindAnyObjectByType<CharacterSelection>();
+        cash = FindAnyObjectByType<Cash>();
+        // highlightColor.GetComponent<HighlightColor>();
     }
 
 private void OnMouseDown() 
 {
-    
-    if (!towerselectorActive)
+    if (!TowerGotSpawned)
     {
+        if (!towerselectorActive && cash.cash >= 300)
+    {
+        cash.CashAdd(-300); 
         towerSpawner = Instantiate(towerSpawner, this.transform.position, Quaternion.identity, transform);
         Slitch = FindAnyObjectByType<selectionSwitch>();
         chars = FindAnyObjectByType<CharacterSelection>();
@@ -40,10 +47,16 @@ private void OnMouseDown()
                 {
                     DestroyTowerSpawner();
                     Instantiate(units[i], this.transform.position, Quaternion.identity, transform);
+                    TowerGotSpawned = true;
+                    Destroy(highlightColor);
+                    Debug.Log(highlightColor);
+                    Debug.Log(TowerGotSpawned);
                     break; 
                 }
             }
     }
+    }
+    
 }
 
 private void DestroyTowerSpawner()
@@ -51,8 +64,7 @@ private void DestroyTowerSpawner()
     
     if (towerSpawner != null)
     {
-        Destroy(towerSpawner.gameObject);
-        towerSpawner = null;
+        towerSpawner.gameObject.SetActive(false);
         towerselectorActive = false; 
     }
 }

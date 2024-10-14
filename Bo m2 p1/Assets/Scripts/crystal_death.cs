@@ -12,6 +12,7 @@ public class crystal_death : MonoBehaviour
     {
         wave = FindAnyObjectByType<Wave>();
     }
+   
 
     private void OnTriggerEnter2D(Collider2D other) 
     {
@@ -28,6 +29,10 @@ public class crystal_death : MonoBehaviour
     void Update()
     {
         if (CrystalHealth == 0)
+        {
+            deathScreen.SetActive(true);
+        }
+         if (Input.GetKeyDown(KeyCode.R))
         {
             deathScreen.SetActive(true);
         }

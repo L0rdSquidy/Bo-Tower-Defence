@@ -203,6 +203,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemHp: 10
   wave: {fileID: 0}
+  values: 1e0000002d0000003c000000
+  switched: 0
+  slider: {fileID: 0}
 --- !u!1001 &6273181623696151254
 PrefabInstance:
   m_ObjectHideFlags: 0

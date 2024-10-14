@@ -211,7 +211,7 @@ MonoBehaviour:
   speed: 3
   FireballExplosion: {fileID: 3930868391020176214, guid: b563932e7bbd9f54791d1b4b172e8cf6, type: 3}
   enemyHP: {fileID: 0}
-  dammage: 5
+  dammage: 8
   expMultiplier: {fileID: 0}
   TowerTransform: {fileID: 0}
 --- !u!58 &6576318654538422592

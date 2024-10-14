@@ -177,6 +177,15 @@ MonoBehaviour:
   anims: {fileID: 0}
   AttackTrigger: 0
   AttackLocation: {fileID: 4545860093788499879}
+  expMultiplier: {fileID: -5002835488012650015}
+  CanvasObject: {fileID: 0}
+  CharacterSheet: {fileID: 6741345380755668391, guid: 24da16d7e06c4e243bed44e3b0a5f02e, type: 3}
+  charSheet: {fileID: 0}
+  HasChosenSub: 0
+  TotalLvL: 0
+  CharSubC: 
+  TotalDmmg: 0
+  SheetIsActive: 0
 --- !u!114 &-5002835488012650015
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -304,7 +313,7 @@ PrefabInstance:
       addedObject: {fileID: 1041945517112740155}
     - targetCorrespondingSourceObject: {fileID: 7476852601180220503, guid: c2bf93e50715fb948a791081f112911c, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 8120360305620969506}
+      addedObject: {fileID: 4862779659479999836}
   m_SourcePrefab: {fileID: 100100000, guid: c2bf93e50715fb948a791081f112911c, type: 3}
 --- !u!1 &1972895653044810093 stripped
 GameObject:
@@ -343,10 +352,10 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 8.0449295}
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 8.181161
---- !u!114 &8120360305620969506
+  m_Radius: 3.73
+--- !u!114 &4862779659479999836
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -355,17 +364,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1972895653044810093}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9bae44b7b0dfee04faccdc447271972a, type: 3}
+  m_Script: {fileID: 11500000, guid: 3ce01fb2e9f2aba498631a05439e3ca2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anims: {fileID: 7694349969793138628}
+  charSheet: {fileID: 0}
+  expMultiplier: {fileID: -5002835488012650015}
+  towerScript: {fileID: -931271573414868492}
+  CharacterSheet: {fileID: 6741345380755668391, guid: 24da16d7e06c4e243bed44e3b0a5f02e, type: 3}
+  CanvasObject: {fileID: 0}
+  SheetIsActive: 0
 --- !u!4 &5959522731142624182 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3320918389890199180, guid: c2bf93e50715fb948a791081f112911c, type: 3}
-  m_PrefabInstance: {fileID: 8980810938662296890}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &7694349969793138628 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 1613957109305975550, guid: c2bf93e50715fb948a791081f112911c, type: 3}
   m_PrefabInstance: {fileID: 8980810938662296890}
   m_PrefabAsset: {fileID: 0}

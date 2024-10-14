@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Animations;
 public class Towers : MonoBehaviour
@@ -16,12 +17,29 @@ public class Towers : MonoBehaviour
     [SerializeField] private Animator anims;
     [SerializeField] private bool AttackTrigger = false;
     [SerializeField] private GameObject AttackLocation;
+    [SerializeField] private TowerExp expMultiplier;
+    [SerializeField] private GameObject CanvasObject;
+
+    [SerializeField] private GameObject CharacterSheet;
+    private Canvas canvas;
+    private GameObject Charasheet;
+    [SerializeField] private CharSheet charSheet;
+    public bool HasChosenSub;
+    public float TotalLvL;
+    public string CharSubC;
+    public float TotalDmmg;
+    public bool SheetIsActive;
+    private int SheetSpawned = 0;
     // [SerializeField] TowerExp Exp;
     Vector3 offset = new Vector3(0, 0, 180);
     private void Start() 
     {
+        // expMultiplier = GetComponent<TowerExp>();
         anims = GetComponentInChildren<Animator>();
+        canvas = FindAnyObjectByType<Canvas>();
+        CanvasObject = canvas.gameObject;
         // Exp = Exp.GetComponent<TowerExp>();
+        TotalLvL = expMultiplier.levels;
     }
     private void OnTriggerEnter2D(Collider2D other) 
     {
@@ -39,6 +57,49 @@ public class Towers : MonoBehaviour
         enemies.Remove(other.gameObject);
         }
     }
+    public void GetTotal(float TotalDammage)
+    {
+        TotalDmmg = TotalDammage;
+    }
+    // private void OnMouseDown() 
+    // {
+        
+    //     if (!SheetIsActive)
+    //     {
+    //         if (SheetSpawned == 0)
+    //         {
+    //             SheetSpawned++;
+    //         Charasheet = Instantiate(CharacterSheet, new Vector3(900, 500,0), Quaternion.identity, CanvasObject.transform);
+    //         charSheet = Charasheet.GetComponent<CharSheet>();
+    //         } else
+    //         {
+    //             Charasheet.SetActive(true);
+    //         } 
+    //         StartCoroutine(Characsheet());
+    //         SheetIsActive = true;
+            
+    //     }
+    //     if (!Charasheet.active)
+    //     {
+    //         SheetIsActive = false;
+    //     }
+        
+        
+    // }
+
+    
+
+    // IEnumerator Characsheet()
+    // {
+    //     yield return new WaitForSeconds(0.2f);
+    //     charSheet.CharDmmg.text = "" + TotalDmmg;
+    //     charSheet.CharLevel.text = "" + TotalLvL;
+    //     if (!HasChosenSub)
+    //     {
+    //         charSheet.CharAff.text = "Null";
+    //         charSheet.CharSubC.text = "";
+    //     }
+    // }
 
     private void Update() 
     {
@@ -67,17 +128,17 @@ public class Towers : MonoBehaviour
 
     private IEnumerator Kiregen()
     {
-        while (stamina < 20)
+        while (stamina < 30)
         {
-            if (stamina < 10)
+            if (stamina < 28)
             {
                 Barcooldown = true;
-            } else if (stamina >= 15)
+            } else if (stamina >= 29)
             {
                 Barcooldown = false;
             }
         stamina++;
-        yield return new WaitForSeconds(0.05f);
+        yield return new WaitForSeconds(0.2f);
         }
     }
     public void fire()
