@@ -19,7 +19,6 @@ public class HighlightColor : MonoBehaviour
         spriteRenderer  = GetComponent<SpriteRenderer>();
         if (spriteRenderer  != null)
         {
-            
             targetColor = normalColor;
             spriteRenderer.color = normalColor;
         }

@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 2731119231349614941}
   - component: {fileID: -931271573414868492}
   - component: {fileID: -5002835488012650015}
+  - component: {fileID: 9128294575764257925}
   m_Layer: 0
   m_Name: wizzard_12
   m_TagString: wizard
@@ -171,6 +172,7 @@ MonoBehaviour:
   isInRadius: 0
   Fireball: {fileID: 8462159773124698545, guid: e3bcd263753d8a44da13eb5948fd7c42, type: 3}
   cooldown: 3
+  ReductionTime: 0
   stamina: 0
   Barcooldown: 0
   staminareq: -1
@@ -179,13 +181,12 @@ MonoBehaviour:
   AttackLocation: {fileID: 4545860093788499879}
   expMultiplier: {fileID: -5002835488012650015}
   CanvasObject: {fileID: 0}
-  CharacterSheet: {fileID: 6741345380755668391, guid: 24da16d7e06c4e243bed44e3b0a5f02e, type: 3}
-  charSheet: {fileID: 0}
   HasChosenSub: 0
   TotalLvL: 0
   CharSubC: 
+  Subclass1: 
+  Subclass2: 
   TotalDmmg: 0
-  SheetIsActive: 0
 --- !u!114 &-5002835488012650015
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -202,6 +203,29 @@ MonoBehaviour:
   expReq: 300
   levels: 0
   dammageMultiplier: 1
+--- !u!114 &9128294575764257925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4545860093788499879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbbb0d5c134a0054f9dc0e57ed19971a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SubclassMenu: {fileID: 0}
+  subclass1: {fileID: 6711165850963954138, guid: 4153c1c51c72dc8409f1c3ff6498cd87, type: 3}
+  subclass2: {fileID: 3940609503157152344, guid: 7c0cb97fb393afe4b8c804f77e21e99d, type: 3}
+  normalColor: {r: 1, g: 1, b: 1, a: 1}
+  Sub1lightColor: {r: 0.3886792, g: 0.16940545, b: 0.16940545, a: 1}
+  charSheet: {fileID: 0}
+  Sub2lightColor: {r: 1, g: 0.83087206, b: 0, a: 1}
+  targetColor: {r: 0, g: 0, b: 0, a: 0}
+  SheetTransform: {fileID: 0}
+  colorTransitionSpeed: 15
+  towers: {fileID: -931271573414868492}
 --- !u!1 &6956782144789405418
 GameObject:
   m_ObjectHideFlags: 0
@@ -297,6 +321,18 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4802246175560491683, guid: c2bf93e50715fb948a791081f112911c, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4802246175560491683, guid: c2bf93e50715fb948a791081f112911c, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4802246175560491683, guid: c2bf93e50715fb948a791081f112911c, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7476852601180220503, guid: c2bf93e50715fb948a791081f112911c, type: 3}
       propertyPath: m_Name
       value: Wizard-Sheet_0
@@ -372,7 +408,10 @@ MonoBehaviour:
   towerScript: {fileID: -931271573414868492}
   CharacterSheet: {fileID: 6741345380755668391, guid: 24da16d7e06c4e243bed44e3b0a5f02e, type: 3}
   CanvasObject: {fileID: 0}
+  SubC: {fileID: 9128294575764257925}
+  Charasheet: {fileID: 0}
   SheetIsActive: 0
+  TowerTransform: {fileID: 0}
 --- !u!4 &5959522731142624182 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3320918389890199180, guid: c2bf93e50715fb948a791081f112911c, type: 3}

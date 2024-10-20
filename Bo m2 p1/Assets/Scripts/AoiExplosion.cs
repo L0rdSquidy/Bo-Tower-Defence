@@ -5,6 +5,7 @@ using UnityEngine;
 public class AoiExplosion : MonoBehaviour
 {
     private EnemyHP enemyHP;
+    EnemyPathFinding enemPath;
     private int dammage = 2;
     private TowerExp expMultiplier;
     
@@ -32,8 +33,12 @@ public class AoiExplosion : MonoBehaviour
         expMultiplier.ExpAdding(10);
         if (other.CompareTag("Enemy"))
         {
+            if (this.CompareTag("fireExplosion"))
+            {
             int d20 = Random.Range(1, 20);
             enemyHP.HpReduction(dammage * d20 / 10);
+            }
+            
         }
     }
 }

@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 7581128015919051180}
   - component: {fileID: 539012088119084751}
   - component: {fileID: 8046149228980593998}
-  - component: {fileID: 2949236603473229328}
   - component: {fileID: 1680881945619878386}
+  - component: {fileID: 2048905574321588146}
   m_Layer: 0
   m_Name: fighter_0
   m_TagString: fighter
@@ -105,6 +105,7 @@ MonoBehaviour:
   isInRadius: 0
   Fireball: {fileID: 642541643696741120, guid: 99ead712a0df6da499f4c9c762599367, type: 3}
   cooldown: 1
+  ReductionTime: 0
   stamina: 0
   Barcooldown: 0
   staminareq: -1
@@ -113,13 +114,12 @@ MonoBehaviour:
   AttackLocation: {fileID: 9104723973394898918}
   expMultiplier: {fileID: 1680881945619878386}
   CanvasObject: {fileID: 0}
-  CharacterSheet: {fileID: 3016931564846765869, guid: dc76030e7f21c9d4da00a92d3ccf3f44, type: 3}
-  charSheet: {fileID: -6797802051449049197, guid: dc76030e7f21c9d4da00a92d3ccf3f44, type: 3}
   HasChosenSub: 0
   TotalLvL: 0
   CharSubC: 
+  Subclass1: 
+  Subclass2: 
   TotalDmmg: 0
-  SheetIsActive: 0
 --- !u!58 &8046149228980593998
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -152,36 +152,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.06, y: -0.16}
   serializedVersion: 2
   m_Radius: 1.4
---- !u!50 &2949236603473229328
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9104723973394898918}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!114 &1680881945619878386
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -198,6 +171,29 @@ MonoBehaviour:
   expReq: 200
   levels: 0
   dammageMultiplier: 1
+--- !u!114 &2048905574321588146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9104723973394898918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbbb0d5c134a0054f9dc0e57ed19971a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SubclassMenu: {fileID: 0}
+  subclass1: {fileID: 6711165850963954138, guid: 75472eec177f718488bc377840cbeb65, type: 3}
+  subclass2: {fileID: 3940609503157152344, guid: b5b5da99e65fcaf4483cd73c5c9828ef, type: 3}
+  normalColor: {r: 1, g: 1, b: 1, a: 1}
+  Sub1lightColor: {r: 0.38909924, g: 0.6204159, b: 0.97735846, a: 1}
+  charSheet: {fileID: 0}
+  Sub2lightColor: {r: 0.40588814, g: 0.40588814, b: 0.4113207, a: 1}
+  targetColor: {r: 0, g: 0, b: 0, a: 0}
+  SheetTransform: {fileID: 0}
+  colorTransitionSpeed: 5
+  towers: {fileID: 539012088119084751}
 --- !u!1001 &4496772218827005080
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -304,7 +300,10 @@ MonoBehaviour:
   towerScript: {fileID: 539012088119084751}
   CharacterSheet: {fileID: 3016931564846765869, guid: dc76030e7f21c9d4da00a92d3ccf3f44, type: 3}
   CanvasObject: {fileID: 0}
+  SubC: {fileID: 0}
+  Charasheet: {fileID: 0}
   SheetIsActive: 0
+  TowerTransform: {fileID: 0}
 --- !u!58 &7701071422249675586
 CircleCollider2D:
   m_ObjectHideFlags: 0

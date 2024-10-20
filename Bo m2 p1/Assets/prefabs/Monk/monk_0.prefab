@@ -125,7 +125,10 @@ MonoBehaviour:
   towerScript: {fileID: -5430937151298801275}
   CharacterSheet: {fileID: 2421326479375014110, guid: 6344dce5178b4da4d9d35501f46569b0, type: 3}
   CanvasObject: {fileID: 0}
+  SubC: {fileID: 0}
+  Charasheet: {fileID: 0}
   SheetIsActive: 0
+  TowerTransform: {fileID: 0}
 --- !u!58 &3456777945634203363
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -174,6 +177,7 @@ GameObject:
   - component: {fileID: -8510289216178233052}
   - component: {fileID: -5430937151298801275}
   - component: {fileID: -2513628564065489749}
+  - component: {fileID: -1160086598448551305}
   m_Layer: 0
   m_Name: monk_0
   m_TagString: Monk
@@ -300,6 +304,7 @@ MonoBehaviour:
   isInRadius: 0
   Fireball: {fileID: 2840259785199697929, guid: 07bb518fd75750d4d8cd34c34739943e, type: 3}
   cooldown: 0.1
+  ReductionTime: 0
   stamina: 30
   Barcooldown: 0
   staminareq: 1
@@ -308,13 +313,12 @@ MonoBehaviour:
   AttackLocation: {fileID: 4141636910792206076}
   expMultiplier: {fileID: -2513628564065489749}
   CanvasObject: {fileID: 0}
-  CharacterSheet: {fileID: 2421326479375014110, guid: 6344dce5178b4da4d9d35501f46569b0, type: 3}
-  charSheet: {fileID: -2594450245767138111, guid: 6344dce5178b4da4d9d35501f46569b0, type: 3}
   HasChosenSub: 0
   TotalLvL: 0
   CharSubC: 
+  Subclass1: 
+  Subclass2: 
   TotalDmmg: 0
-  SheetIsActive: 0
 --- !u!114 &-2513628564065489749
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -331,3 +335,26 @@ MonoBehaviour:
   expReq: 150
   levels: 0
   dammageMultiplier: 1
+--- !u!114 &-1160086598448551305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4141636910792206076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbbb0d5c134a0054f9dc0e57ed19971a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SubclassMenu: {fileID: 0}
+  subclass1: {fileID: 6711165850963954138, guid: f4721676eb8e8164abbfc076370f886b, type: 3}
+  subclass2: {fileID: 3940609503157152344, guid: 02a5744a5b122cf43826ca107e230868, type: 3}
+  normalColor: {r: 1, g: 1, b: 1, a: 1}
+  Sub1lightColor: {r: 0.85660374, g: 0.7364974, b: 0.39274466, a: 1}
+  charSheet: {fileID: 0}
+  Sub2lightColor: {r: 0.7584905, g: 0.43885124, b: 0.42790312, a: 1}
+  targetColor: {r: 0, g: 0, b: 0, a: 0}
+  SheetTransform: {fileID: 0}
+  colorTransitionSpeed: 5
+  towers: {fileID: -5430937151298801275}

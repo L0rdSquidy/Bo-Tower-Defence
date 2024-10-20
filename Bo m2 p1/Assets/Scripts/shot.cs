@@ -33,11 +33,11 @@ public class shot : MonoBehaviour
     {
         if(enemy == null)
         {
-            Destroy(gameObject);
+            SelfDestruct();
         }
         if(transform.position	== new Vector3(0, 0, 0))
         {
-            SelfDestruct();
+            Destroy(gameObject);
         }
         transform.position = Vector3.MoveTowards(transform.position, enemy.transform.position, speed * Time.deltaTime);
         lastEnemPos = enemy.transform.position; 
@@ -47,7 +47,7 @@ public class shot : MonoBehaviour
     {
         transform.position = Vector3.MoveTowards(transform.position, lastEnemPos, speed * Time.deltaTime);
         Debug.Log(Vector3.Distance(transform.position, lastEnemPos));
-        if (Vector3.Distance(transform.position, lastEnemPos) <= 0.1f&& this.gameObject.CompareTag("fireball"))
+        if (Vector3.Distance(transform.position, lastEnemPos) <= 0.1f)
         {
         Destroy(gameObject);
         }
@@ -60,6 +60,10 @@ public class shot : MonoBehaviour
         if (other.CompareTag("Enemy"))
         {
             int d20 = Random.Range(1, 20);
+            if (tower.CharSubC == tower.Subclass2)
+            {
+                dammage += 1;
+            }
             enemyHP.HpReduction(dammage * d20 / 10 * expMultiplier.dammageMultiplier);
             Debug.LogWarning(d20);
 

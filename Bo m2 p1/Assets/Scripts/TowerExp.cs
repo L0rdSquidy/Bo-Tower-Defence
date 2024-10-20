@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class TowerExp : MonoBehaviour
 {
     public float exp;
-    [SerializeField] private float expReq;
+    [SerializeField] public float expReq;
     [SerializeField] public int levels;
     public float dammageMultiplier;
     // Start is called before the first frame update
@@ -23,7 +23,7 @@ public class TowerExp : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (exp == expReq)
+        if (exp >= expReq)
         {
             exp = 0;
             levels ++;

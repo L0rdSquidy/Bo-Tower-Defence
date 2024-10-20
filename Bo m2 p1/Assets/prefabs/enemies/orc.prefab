@@ -73,7 +73,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 4
+  m_SortingOrder: 6
   m_Sprite: {fileID: 527324239, guid: bc473a704343d564f928dbcde44d968a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -216,9 +216,23 @@ MonoBehaviour:
   - {x: -12, y: 3.25, z: 0}
   - {x: 0, y: 3.25, z: 0}
   - {x: 0, y: 8, z: 0}
-  rotations: []
-  rotationsPath2: []
-  speed: 0.2
+  rotations:
+  - {x: 0, y: 0, z: 0, w: 0}
+  - {x: 0, y: 0, z: 90, w: -90}
+  - {x: 0, y: 0, z: 0, w: 0}
+  - {x: 0, y: 0, z: 90, w: -90}
+  - {x: 0, y: 0, z: 0, w: 0}
+  - {x: 0, y: 0, z: 90, w: 90}
+  - {x: 0, y: 0, z: 0, w: 0}
+  rotationsPath2:
+  - {x: 0, y: 0, z: 0, w: 0}
+  - {x: 0, y: 0, z: 90, w: 90}
+  - {x: 0, y: 0, z: 180, w: 10}
+  - {x: 0, y: 0, z: 90, w: 90}
+  - {x: 0, y: 0, z: 0, w: 0}
+  - {x: 0, y: 0, z: 90, w: -90}
+  - {x: 0, y: 0, z: 0, w: 0}
+  speed: 0.3
 --- !u!58 &-645628881968285665
 CircleCollider2D:
   m_ObjectHideFlags: 0

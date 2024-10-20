@@ -7,9 +7,8 @@ using UnityEngine;
 
 public class Wave : MonoBehaviour
 {
-    int waveCount;
+    [SerializeField] int waveCount;
     int enemyCount = 10;
-    bool waveStart;
     public int killCount;
     public EnemyPathFinding enempath;
     public EnemyPathFinding enemyPathW10;
@@ -21,6 +20,7 @@ public class Wave : MonoBehaviour
     public GameObject orc;
     private GameObject currentEnemy;
     private Cash cash;
+    private float SpawnSpeed = 1f;
     
     // Start is called before the first frame update
     void Start()
@@ -34,7 +34,7 @@ public class Wave : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (killCount == enemyCount)
+        if (killCount >= enemyCount)
         {
             enemyCount = enemyCount += 4;
             WaveText.text = "" + waveCount;
@@ -50,17 +50,20 @@ public class Wave : MonoBehaviour
     {
         if (waveCount <= 10)
             {
+                SpawnSpeed = 1;
                 currentEnemy = goblin;
                 Debug.Log(currentEnemy);
             }
             else if (waveCount <= 20)
             {
+                SpawnSpeed = 2;
                 currentEnemy = kobolt;
                 enemyCount = 10;
                 cash.switched = 1;
             }
-            else if (waveCount <= 30) 
+            else
             {
+                SpawnSpeed = 3;
                 currentEnemy = orc;
                 enemyCount = 10;
                 cash.switched = 2;
@@ -74,8 +77,9 @@ public class Wave : MonoBehaviour
             Debug.Log("Hello");
             for (int i = 0; i < enemyCount; i++)
             {
-                new WaitForSeconds(1f);
+                new WaitForSeconds(SpawnSpeed);
                 Instantiate(enemy);
+                Debug.Log(enemy);
                 if (LaneSwitch == true)
                 {
                     if (waveCount <= 10)
@@ -88,7 +92,7 @@ public class Wave : MonoBehaviour
                         enemyPathW10.startpoint = new Vector3(4, -8, 0);
                         LaneSwitch = false;
                     }
-                    else if (waveCount <= 30) 
+                    else 
                     {
                         enemyPathFindingW20.startpoint = new Vector3(4, -8, 0);
                         LaneSwitch = false;
@@ -107,14 +111,14 @@ public class Wave : MonoBehaviour
                         enemyPathW10.startpoint = new Vector3(-4, -8, 0);
                         LaneSwitch = true;
                     }
-                    else if (waveCount <= 30) 
+                    else
                     {
                         enemyPathFindingW20.startpoint= new Vector3(-4, -8, 0);
                         LaneSwitch = true;
                     }   
                    
                 }
-                yield return new WaitForSeconds(0.5f);
+                yield return new WaitForSeconds(SpawnSpeed);
             }
        waveCount ++;
        EnemyManager();

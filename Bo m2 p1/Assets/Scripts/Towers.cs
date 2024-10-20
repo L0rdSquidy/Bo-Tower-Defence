@@ -11,6 +11,7 @@ public class Towers : MonoBehaviour
     public bool isInRadius;
     public GameObject Fireball;
     [SerializeField] private float cooldown;
+    [SerializeField] private float ReductionTime;
     [SerializeField] private float stamina;
     [SerializeField] private bool Barcooldown;
     [SerializeField] private float staminareq;
@@ -20,26 +21,19 @@ public class Towers : MonoBehaviour
     [SerializeField] private TowerExp expMultiplier;
     [SerializeField] private GameObject CanvasObject;
 
-    [SerializeField] private GameObject CharacterSheet;
     private Canvas canvas;
-    private GameObject Charasheet;
-    [SerializeField] private CharSheet charSheet;
     public bool HasChosenSub;
     public float TotalLvL;
     public string CharSubC;
+    public string Subclass1;
+    public string Subclass2;
     public float TotalDmmg;
-    public bool SheetIsActive;
-    private int SheetSpawned = 0;
-    // [SerializeField] TowerExp Exp;
     Vector3 offset = new Vector3(0, 0, 180);
     private void Start() 
     {
-        // expMultiplier = GetComponent<TowerExp>();
         anims = GetComponentInChildren<Animator>();
         canvas = FindAnyObjectByType<Canvas>();
         CanvasObject = canvas.gameObject;
-        // Exp = Exp.GetComponent<TowerExp>();
-        TotalLvL = expMultiplier.levels;
     }
     private void OnTriggerEnter2D(Collider2D other) 
     {
@@ -61,45 +55,6 @@ public class Towers : MonoBehaviour
     {
         TotalDmmg = TotalDammage;
     }
-    // private void OnMouseDown() 
-    // {
-        
-    //     if (!SheetIsActive)
-    //     {
-    //         if (SheetSpawned == 0)
-    //         {
-    //             SheetSpawned++;
-    //         Charasheet = Instantiate(CharacterSheet, new Vector3(900, 500,0), Quaternion.identity, CanvasObject.transform);
-    //         charSheet = Charasheet.GetComponent<CharSheet>();
-    //         } else
-    //         {
-    //             Charasheet.SetActive(true);
-    //         } 
-    //         StartCoroutine(Characsheet());
-    //         SheetIsActive = true;
-            
-    //     }
-    //     if (!Charasheet.active)
-    //     {
-    //         SheetIsActive = false;
-    //     }
-        
-        
-    // }
-
-    
-
-    // IEnumerator Characsheet()
-    // {
-    //     yield return new WaitForSeconds(0.2f);
-    //     charSheet.CharDmmg.text = "" + TotalDmmg;
-    //     charSheet.CharLevel.text = "" + TotalLvL;
-    //     if (!HasChosenSub)
-    //     {
-    //         charSheet.CharAff.text = "Null";
-    //         charSheet.CharSubC.text = "";
-    //     }
-    // }
 
     private void Update() 
     {
@@ -116,7 +71,10 @@ public class Towers : MonoBehaviour
             fire();
             timeelapsed = 0;
         }
-        
+        if (CharSubC == Subclass1)
+            {
+                cooldown -= ReductionTime;
+            }
         stamina = Mathf.Max(stamina, 0);
 
         if (stamina <= staminareq)
@@ -143,8 +101,10 @@ public class Towers : MonoBehaviour
     }
     public void fire()
     {
+        TotalLvL = expMultiplier.levels;
         // anims.Play("attack");
         Instantiate(Fireball, transform.position, Quaternion.identity, AttackLocation.transform);
+        expMultiplier.ExpAdding(20);
         transform.rotation = Quaternion.LookRotation(Vector3.forward, enemies[0].transform.position - transform.position);
         transform.rotation *= Quaternion.Euler(offset);
     }
