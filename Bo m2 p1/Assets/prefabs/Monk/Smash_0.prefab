@@ -125,7 +125,7 @@ MonoBehaviour:
   speed: 10000
   FireballExplosion: {fileID: 0}
   enemyHP: {fileID: 0}
-  dammage: 2
+  damage: 2
   expMultiplier: {fileID: 0}
   TowerTransform: {fileID: 0}
 --- !u!58 &-1868118475616783325

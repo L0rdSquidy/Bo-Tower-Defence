@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Transactions;
 using UnityEngine;
 
-public class shot : MonoBehaviour
+public class Shot : MonoBehaviour
 {
     public GameObject enemy;
     private Towers tower;
@@ -11,77 +11,69 @@ public class shot : MonoBehaviour
     [SerializeField] private GameObject FireballExplosion;
     private Vector3 lastEnemPos;
     [SerializeField] private EnemyHP enemyHP;
-    [SerializeField] public int dammage;
+    [SerializeField] public int damage;
     [SerializeField] private TowerExp expMultiplier;
     [SerializeField] private Transform TowerTransform;
 
     void Start()
     {
-        
-        // if (this.CompareTag("fireball"))
-        // {
-        //     TowerTransform = gameObject.transform.parent.transform.parent.transform;
-        // }else
-        TowerTransform = gameObject.transform.parent.transform;
-        enemy = TowerTransform.GetComponent<Towers>().enemies[0].gameObject;
+        TowerTransform = transform.parent.transform;
         tower = TowerTransform.GetComponent<Towers>();
         expMultiplier = TowerTransform.GetComponent<TowerExp>();
-        tower.GetTotal(dammage * expMultiplier.dammageMultiplier);
-        
+        if (tower.enemies.Count > 0) enemy = tower.enemies[0];
+
+        tower.GetTotal(damage, expMultiplier.dammageMultiplier);
     }
+
     void Update()
     {
-        if(enemy == null)
+        if (enemy == null)
         {
             SelfDestruct();
-        }
-        if(transform.position	== new Vector3(0, 0, 0))
-        {
-            Destroy(gameObject);
+            return;
         }
         transform.position = Vector3.MoveTowards(transform.position, enemy.transform.position, speed * Time.deltaTime);
-        lastEnemPos = enemy.transform.position; 
+        lastEnemPos = enemy.transform.position;
     }
 
     void SelfDestruct()
     {
         transform.position = Vector3.MoveTowards(transform.position, lastEnemPos, speed * Time.deltaTime);
-        Debug.Log(Vector3.Distance(transform.position, lastEnemPos));
         if (Vector3.Distance(transform.position, lastEnemPos) <= 0.1f)
         {
-        Destroy(gameObject);
+            Destroy(gameObject);
         }
     }
 
     private void OnTriggerEnter2D(Collider2D other) 
     {
         enemyHP = other.GetComponent<EnemyHP>();
-        Debug.LogWarning(enemyHP);
-        if (other.CompareTag("Enemy"))
+        if (other.CompareTag("Enemy") && enemyHP != null)
         {
             int d20 = Random.Range(1, 20);
-            if (tower.CharSubC == tower.Subclass2)
+            
+            if (tower.selectedSubclass == SubclassType.ThunderMage)
             {
-                dammage += 1;
+                damage += 1;
             }
-            enemyHP.HpReduction(dammage * d20 / 10 * expMultiplier.dammageMultiplier);
-            Debug.LogWarning(d20);
+            
+            enemyHP.HpReduction(damage * d20 / 10 * expMultiplier.dammageMultiplier);
+            Debug.Log("HEy");
 
             if (enemyHP.EnemHp == 0)
             {
                 tower.enemies.Remove(other.gameObject);
             }
 
-            if (this.gameObject.CompareTag("fireball"))
+            if (gameObject.CompareTag("fireball"))
             {
                 Instantiate(FireballExplosion, transform.position, Quaternion.identity, tower.transform);
-                Destroy(this.gameObject);
-            } else if(gameObject.CompareTag("Slash"))
-            {
-                Destroy(this.gameObject, 0.5f);
+                Destroy(gameObject);
             }
-            
+            else if (gameObject.CompareTag("Slash"))
+            {
+                Destroy(gameObject, 0.5f);
+            }
         }
-        
     }
 }

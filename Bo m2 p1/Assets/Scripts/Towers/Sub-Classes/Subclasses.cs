@@ -20,46 +20,43 @@ public class Subclasses : MonoBehaviour
     [SerializeField] private Towers towers;
     private SheetSpawn sheetSpawn;
     private Cash cash;
-    // [SerializeField] private SheetSpawn sheetSpawn;
-    // Start is called before the first frame update
+
     void Start()
     {
         cash = FindAnyObjectByType<Cash>();
         exp = GetComponent<TowerExp>();
         sheetSpawn = GetComponentInChildren<SheetSpawn>();
-        Debug.Log(sheetSpawn);
-        
-        spriteRenderer  = sheetSpawn.gameObject.GetComponent<SpriteRenderer>();
-        if (spriteRenderer  != null)
+        spriteRenderer = sheetSpawn.GetComponent<SpriteRenderer>();
+
+        if (spriteRenderer != null)
         {
             targetColor = normalColor;
             spriteRenderer.color = normalColor;
         }
     }
+
     public void MenuOpen()
     {
         if (exp.levels > 6 || cash.cash > 100000)
         {
-           if (subnumbering == 0)
+            if (subnumbering == 0)
             {
-                Debug.Log(charSheet);
-                SubclassMenu = charSheet.SubCMenu;   
-                Debug.Log(SubclassMenu);
+                SubclassMenu = charSheet.SubCMenu;
                 SubclassMenu.SetActive(true);
             } 
         }
     }
 
-
     public void MenuClose()
     {
         SubclassMenu.SetActive(false);
     }
+
     public void SubClass1()
     {
         Instantiate(subclass1, transform.position, Quaternion.identity);
         targetColor = Sub1lightColor;
-        towers.CharSubC = towers.Subclass1;
+        towers.selectedSubclass = SubclassType.FireMage;
         subnumbering = 1;
         MenuClose();
     }
@@ -68,12 +65,11 @@ public class Subclasses : MonoBehaviour
     {
         Instantiate(subclass2, transform.position, Quaternion.identity);
         targetColor = Sub2lightColor;
-        towers.CharSubC = towers.Subclass2;
+        towers.selectedSubclass = SubclassType.IceMage;
         subnumbering = 2;
         MenuClose();
     }
 
-    // Update is called once per frame
     void Update()
     {
         spriteRenderer.color = Color.Lerp(spriteRenderer.color, targetColor, colorTransitionSpeed * Time.deltaTime);
