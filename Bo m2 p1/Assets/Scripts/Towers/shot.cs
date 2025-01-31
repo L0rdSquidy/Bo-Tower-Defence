@@ -52,7 +52,7 @@ public class Shot : MonoBehaviour
         {
             int d20 = Random.Range(1, 20);
             
-            if (tower.selectedSubclass == SubclassType.ThunderMage)
+            if (tower.selectedSubclass == SubclassType.IceMage)
             {
                 damage += 1;
             }
